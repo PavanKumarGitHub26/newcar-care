@@ -7,16 +7,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.project.newcarcare.dto.Branch;
-
+import com.project.newcarcare.dto.Manager;
 import com.project.newcarcare.repository.BranchRepository;
 
 @Repository
 public class BranchDao {
 	@Autowired
 	BranchRepository branchRepository;
+	
+	@Autowired
+	ManagerDao dao;
 
-	public Branch saveBranch(Branch branch) {
-		return branchRepository.save(branch);
+	public Branch saveBranch(String mid,Branch branch) {
+		Manager manager= dao.getManager(mid);
+		if(manager != null)
+		{
+			branch.setManager(manager);
+			return branchRepository.save(branch);
+		}
+		return null;
 	}
 
 	public Branch getBranch(String id) {
