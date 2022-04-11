@@ -1,9 +1,12 @@
 package com.project.newcarcare.dto;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -27,6 +30,12 @@ public class Manager {
 			}
 			
 			)
+	@OneToMany(mappedBy = "manager")
+	private List<Branch>branchs;
+	
+	@OneToMany(mappedBy = "manager")
+	private List<CarService>carServices;
+	
 	private String id;
 	private String name;
 	private String email;
