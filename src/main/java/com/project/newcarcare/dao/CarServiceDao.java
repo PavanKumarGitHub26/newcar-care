@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.project.newcarcare.dto.Branch;
+import com.project.newcarcare.dto.Car;
 import com.project.newcarcare.dto.CarService;
 import com.project.newcarcare.repository.CarServiceRepository;
 
@@ -13,9 +15,24 @@ import com.project.newcarcare.repository.CarServiceRepository;
 public class CarServiceDao {
 	@Autowired
 	CarServiceRepository carServiceRepository;
+	
+	@Autowired
+	CarDao carDao;
+	
+	@Autowired
+	BranchDao branchDao;
+	
+	
 
-	public CarService saveCarService(CarService carService) {
-		return carServiceRepository.save(carService);
+	public CarService saveCarService(String carNumber,String id  ,CarService carService) {
+		Car car = carDao.getCar(carNumber);
+		  Branch branch=branchDao.getBranch(id);
+		if(car!=null && branch!=null) {
+			carService.setCar(car);
+			carService.setBranch(branch);
+			return carServiceRepository.save(carService);
+		}
+		return null;
 	}
 
 	public CarService getCarServiceById(int id) {
