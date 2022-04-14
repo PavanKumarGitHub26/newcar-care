@@ -35,9 +35,13 @@ public class Customer {
 	private String password;
 	private long number;
 	
+	
 	@OneToMany(mappedBy = "customer")
 	private List<Car>car;
 	
+	
+	
 	@OneToOne
 	private Branch branch;
+	
 }
