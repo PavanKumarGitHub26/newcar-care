@@ -18,8 +18,8 @@ public class BranchDao {
 	@Autowired
 	ManagerDao dao;
 
-	public Branch saveBranch(String mid,Branch branch) {
-		Manager manager= dao.getManager(mid);
+	public Branch saveBranch(String id,Branch branch) {
+		Manager manager= dao.getManager(id);
 		if(manager != null)
 		{
 			branch.setManager(manager);
@@ -40,7 +40,7 @@ public class BranchDao {
 	public boolean removeBranch(String id) {
 		Branch branch = getBranch(id);
 		if (branch != null) {
-			branchRepository.delete(branch);
+			branchRepository.deleteById(id);
 			return true;
 		} else
 			return false;
@@ -54,7 +54,7 @@ public class BranchDao {
 		return null;
 	}
 
-	public List<Branch> getAll() {
-		return branchRepository.findAll();
+	public List<Branch> getAll(String id) {
+		return branchRepository.getAll(id);
 	}
 }
