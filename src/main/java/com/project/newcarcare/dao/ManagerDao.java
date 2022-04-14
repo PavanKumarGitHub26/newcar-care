@@ -1,5 +1,6 @@
 package com.project.newcarcare.dao;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +32,15 @@ public class ManagerDao {
 		return manager;
 	}
 	
+	
+	public List<Manager> getAllManager(){
+		return managerRepository.findAll();
+	}
+	
 	public boolean removeManager(String id) {
 		Manager manager=getManager(id);
 		if(manager!=null) {
-		managerRepository.delete(manager);
+		managerRepository.deleteById(id);
 		return true;
 		}
 		else
