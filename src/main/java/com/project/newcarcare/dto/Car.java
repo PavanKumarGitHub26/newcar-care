@@ -23,7 +23,7 @@ public class Car {
 	private int manufactureYear;
 	
 	@ManyToOne
-	@JoinColumn(name = "customer_id")
+	@JoinColumn
 	private Customer customer;
 	
 	@OneToMany(mappedBy = "car")
