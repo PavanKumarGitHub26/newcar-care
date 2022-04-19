@@ -8,10 +8,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Entity
-@Data
+
 public class Car {
 
 	@Id
@@ -28,4 +30,70 @@ public class Car {
 	
 	@OneToMany(mappedBy = "car")
 	private List<CarService> carServices;
+
+	public String getCarNumber() {
+		return carNumber;
+	}
+
+	public void setCarNumber(String carNumber) {
+		this.carNumber = carNumber;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public int getManufactureYear() {
+		return manufactureYear;
+	}
+
+	public void setManufactureYear(int manufactureYear) {
+		this.manufactureYear = manufactureYear;
+	}
+	@JsonIgnore
+	public Customer getCustomer() {
+		return customer;
+	}
+	
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public List<CarService> getCarServices() {
+		return carServices;
+	}
+
+	public void setCarServices(List<CarService> carServices) {
+		this.carServices = carServices;
+	}
+	
+	
 }
