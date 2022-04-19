@@ -37,7 +37,7 @@ public class Customer {
 	
 	
 	@OneToMany(mappedBy = "customer")
-	private List<Car>car;
+	private List<Car>cars;
 	
 	
 	
