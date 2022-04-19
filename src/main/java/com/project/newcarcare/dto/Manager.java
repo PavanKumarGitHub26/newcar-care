@@ -30,16 +30,16 @@ public class Manager {
 			}
 			
 			)
-	@OneToMany(mappedBy = "manager")
-	private List<Branch>branchs;
 	
-	@OneToMany(mappedBy = "manager")
-	private List<CarServiceAvailable>carServicesAvailables;
+	
 	
 	private String id;
 	private String name;
 	private String email;
 	private String password;
 	private long number;
+	
+	@OneToMany(mappedBy = "manager") 
+	private List<Branch>branchs;
 	
 }
