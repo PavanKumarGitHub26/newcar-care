@@ -15,10 +15,11 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Entity
-@Data
 public class Branch {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "manager_seq")
@@ -34,11 +35,7 @@ public class Branch {
 	@JoinColumn
 	private Manager manager;
 
-	@OneToMany(mappedBy = "branch")
-	private List<CarService> carService;
-
-	@OneToOne
-	private Customer customer;
+	
 
 	private String name;
 	private String area;
@@ -46,5 +43,57 @@ public class Branch {
 	private long phone;
 	private String email;
 	private String website;
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	@JsonIgnore
+	public Manager getManager() {
+		return manager;
+	}
+	public void setManager(Manager manager) {
+		this.manager = manager;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getArea() {
+		return area;
+	}
+	public void setArea(String area) {
+		this.area = area;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public long getPhone() {
+		return phone;
+	}
+	public void setPhone(long phone) {
+		this.phone = phone;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getWebsite() {
+		return website;
+	}
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+	
+	
 
 }
