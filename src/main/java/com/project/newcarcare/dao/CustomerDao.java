@@ -21,9 +21,13 @@ public class CustomerDao {
 
 	
 
-	public Customer saveCustomer(@ RequestParam String id, @RequestBody Customer customer) {
-			return customerRepository.save(customer);
-
+	public Customer saveCustomer( String id,Customer customer) {
+		    Branch branch=branchDao.getBranch(id);
+		    if(branch!=null) {
+		    	customer.setBranch(branch);
+	      return customerRepository.save(customer);
+		    }
+		    return null;
 		}
 
 	public Customer getCustomerById(String id) {
