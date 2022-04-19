@@ -26,7 +26,7 @@ public class CarServiceAvailable {
 	
 	@ManyToMany
 	@JoinTable(inverseJoinColumns = @JoinColumn,joinColumns = @JoinColumn)
-	private List<CarService>carServices;
+	private List<CarService> carServices;
 	
 	
 	
