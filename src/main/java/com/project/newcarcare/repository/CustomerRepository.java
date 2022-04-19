@@ -12,4 +12,5 @@ public interface CustomerRepository extends JpaRepository<Customer, String> {
 	@Query("select c from Customer c where c.branch.id=?1")
 	public List<Customer> getAllCustomer(String id) ;
 
+	
 }
