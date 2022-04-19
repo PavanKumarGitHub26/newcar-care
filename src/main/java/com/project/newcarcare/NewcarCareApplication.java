@@ -39,7 +39,7 @@ public class NewcarCareApplication {
 
 		List<VendorExtension> extensions = new ArrayList<VendorExtension>();
 
-		ApiInfo apiInfo = new ApiInfo("Car API services", "service to manage car service", "snapshot 1.0",
+		ApiInfo apiInfo = new ApiInfo("CarCare API services", "service to manage car service", "snapshot 1.0",
 				"www.testyantraglobal.com", contact, "licence 123", "www.testyantra.com", extensions);
 		
 		return new Docket(DocumentationType.SWAGGER_2)
@@ -49,10 +49,16 @@ public class NewcarCareApplication {
 				.apiInfo(apiInfo)
 				.useDefaultResponseMessages(false);
 	}
+	String email="nadageripramod03@gmail.com";
+	String msg="hi";
+	public void getMail(String Vemail,String message) {
+		email=Vemail;
+		msg=message;
+	}
 
 	@EventListener(ApplicationReadyEvent.class)
 	public void triggerMail() throws MessagingException {
 
-		service.sendSimpleEmail("omkarwale8177@gmail.com", "car-care project","welcome to car services!!!!!!!");
+		service.sendSimpleEmail(email, msg,"welcome to car services!!!!!!!");
 	}
 }
