@@ -1,7 +1,6 @@
 package com.project.newcarcare.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,25 +10,23 @@ import com.project.newcarcare.dto.Manager;
 
 @Service
 public class ManagerService {
-	
+
 	@Autowired
 	ManagerDao managerDao;
-	
+
 	public Manager saveManager(Manager manager) {
 		return managerDao.saveManager(manager);
 	}
-	
+
 	public Manager getManager(String id) {
-		Manager manager =managerDao.getManager(id);
-		if(manager==null) {
+		Manager manager = managerDao.getManager(id);
+		if (manager == null) {
 			return null;
 		}
 		return manager;
 	}
-	
-	
 	public List<Manager> getAllManager(){
-		return managerDao.getAllManager();
+		return managerDao.getAllManagers();
 	}
 	
 	
@@ -51,7 +48,8 @@ public class ManagerService {
 		}
 		return null;
 	}
+	
+	
+	
+
 }
-
-
-
