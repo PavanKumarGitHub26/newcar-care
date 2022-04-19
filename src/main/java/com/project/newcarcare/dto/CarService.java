@@ -18,8 +18,7 @@ public class CarService {
 @Id
 private int id;
 private String type;
-private double cost;
-private String duration;
+private double totalcost;
 
 
 
