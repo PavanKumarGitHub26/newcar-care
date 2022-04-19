@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import com.project.newcarcare.dto.Manager;
 import com.project.newcarcare.repository.ManagerRepository;
 
-
 @Repository
 public class ManagerDao {
 
@@ -28,25 +27,24 @@ public class ManagerDao {
 		Manager manager = optional.get();
 		return manager;
 	}
-	
-	public List<Manager> getAllManagers(){
+
+	public List<Manager> getAllManagers() {
 		return managerRepository.findAll();
 	}
-	
+
 	public boolean removeManager(String id) {
-		Manager manager=getManager(id);
-		if(manager!=null) {
-		managerRepository.delete(manager);
-		return true;
+		Manager manager = getManager(id);
+		if (manager != null) {
+			managerRepository.deleteById(id);
+			return true;
 		}
-		else
-			return false;
+		return false;
+		
 	}
-	
-	public Manager updateManager(String id,Manager m1) {
-		Manager manager=getManager(id);
-		if(manager!=null)
-		{
+
+	public Manager updateManager(String id, Manager m1) {
+		Manager manager = getManager(id);
+		if (manager != null) {
 			return managerRepository.save(manager);
 		}
 		return null;

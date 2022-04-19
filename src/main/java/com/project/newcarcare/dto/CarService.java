@@ -1,8 +1,11 @@
 package com.project.newcarcare.dto;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 
@@ -27,7 +30,6 @@ private String duration;
 	@JoinColumn
 	private Car car;
 	
-	@ManyToOne
-	@JoinColumn
-	private Manager manager;
+	@ManyToMany(mappedBy = "carServices")
+	private List<CarServiceAvailable> carServiceAvailables;
 }

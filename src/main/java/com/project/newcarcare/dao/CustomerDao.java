@@ -37,14 +37,15 @@ public class CustomerDao {
 		return opt.get();
 	}
 
-	public List<Customer> getAllCustomer() {
-		return customerRepository.findAll();
+	public List<Customer> getAllCustomer(String id) {
+		return customerRepository.getAllCustomer(id);
+		
 	}
 
 	public boolean deleteCustomer(String id) {
 		Customer customer = getCustomerById(id);
 		if (customer != null) {
-			customerRepository.delete(customer);
+			customerRepository.deleteById(id);
 			return true;
 		}
 		return false;

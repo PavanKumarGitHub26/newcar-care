@@ -34,7 +34,7 @@ public class Manager {
 	private List<Branch>branchs;
 	
 	@OneToMany(mappedBy = "manager")
-	private List<CarService>carServices;
+	private List<CarServiceAvailable>carServicesAvailables;
 	
 	private String id;
 	private String name;

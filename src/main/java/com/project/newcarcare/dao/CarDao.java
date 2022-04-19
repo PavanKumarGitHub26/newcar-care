@@ -43,15 +43,15 @@ public class CarDao {
 	public boolean removeCar(String carNumber) {
 		Car car = getCar(carNumber);
 		if (car != null) {
-			carRepositery.delete(car);
+			carRepositery.deleteById(carNumber);
 			return true;
 		}
 		return false;
 	}
 
-	public List<Car> getAllCars() {
-		List<Car> cars = carRepositery.findAll();
-		return cars;
+	public List<Car> getAllCars(String id) {
+		return carRepositery.getAllCars(id);
+		
 	}
 
 	public Car updateCar(String carNumber, Car car) {
