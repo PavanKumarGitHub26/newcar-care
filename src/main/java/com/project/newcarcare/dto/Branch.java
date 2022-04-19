@@ -22,10 +22,10 @@ import lombok.Data;
 @Entity
 public class Branch {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "manager_seq")
-	@GenericGenerator(name = "manager_seq", strategy = "com.project.newcarcare.dto.StringPrefixedSequenceIdGenerator", parameters = {
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "branch_seq")
+	@GenericGenerator(name = "branch_seq", strategy = "com.project.newcarcare.dto.StringPrefixedSequenceIdGenerator", parameters = {
 			@Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "1"),
-			@Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "MG_"),
+			@Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "BR_"),
 			@Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_FORMAT_PARAMETER, value = "%05d") }
 
 	)
