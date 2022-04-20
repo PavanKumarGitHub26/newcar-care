@@ -29,6 +29,6 @@ private double totalcost;
 	@JoinColumn
 	private Car car;
 	
-	@ManyToMany(mappedBy = "carServices")
-	private List<CarServiceAvailable> carServiceAvailables;
+	//@ManyToMany(mappedBy = "carServices")
+	//private List<CarServiceAvailable> carServiceAvailables;
 }
