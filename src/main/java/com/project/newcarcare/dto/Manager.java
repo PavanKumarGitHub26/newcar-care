@@ -42,4 +42,7 @@ public class Manager {
 	@OneToMany(mappedBy = "manager") 
 	private List<Branch>branchs;
 	
+	@OneToMany(mappedBy = "manager")
+	private List<CarServiceAvailable>carServiceAvailables;
+	
 }
