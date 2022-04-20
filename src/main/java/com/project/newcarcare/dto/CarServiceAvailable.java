@@ -3,6 +3,8 @@ package com.project.newcarcare.dto;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -15,6 +17,7 @@ import lombok.Data;
 public class CarServiceAvailable {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String type;
 	private double cost;
@@ -24,9 +27,9 @@ public class CarServiceAvailable {
 	@JoinColumn
 	private Manager manager;
 	
-	@ManyToMany
-	@JoinTable(inverseJoinColumns = @JoinColumn,joinColumns = @JoinColumn)
-	private List<CarService> carServices;
+	//@ManyToMany
+	//@JoinTable(inverseJoinColumns = @JoinColumn,joinColumns = @JoinColumn)
+	//private List<CarService> carServices;
 	
 	
 	
