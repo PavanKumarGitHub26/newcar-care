@@ -27,9 +27,9 @@ public class CarServiceAvailable {
 	@JoinColumn
 	private Manager manager;
 	
-	//@ManyToMany
-	//@JoinTable(inverseJoinColumns = @JoinColumn,joinColumns = @JoinColumn)
-	//private List<CarService> carServices;
+	@ManyToMany
+	@JoinTable(inverseJoinColumns = @JoinColumn,joinColumns = @JoinColumn)
+	private List<ServiceSelected> serviceSelecteds;
 	
 	
 	
