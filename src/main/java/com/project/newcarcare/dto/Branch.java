@@ -35,8 +35,8 @@ public class Branch {
 	@JoinColumn
 	private Manager manager;
 
-	
-
+	@OneToMany(mappedBy = "branch")
+    private  List<ServiceSelected>  servicesSelected;
 	private String name;
 	private String area;
 	private String city;
