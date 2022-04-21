@@ -29,7 +29,7 @@ public class Car {
 	private Customer customer;
 	
 	@OneToMany(mappedBy = "car")
-	private List<CarService> carServices;
+	private List<ServiceSelected> serviceSelecteds;
 
 	public String getCarNumber() {
 		return carNumber;
@@ -87,12 +87,12 @@ public class Car {
 		this.customer = customer;
 	}
 
-	public List<CarService> getCarServices() {
-		return carServices;
+	public List<ServiceSelected> getCarServices() {
+		return serviceSelecteds;
 	}
 
-	public void setCarServices(List<CarService> carServices) {
-		this.carServices = carServices;
+	public void setCarServices(List<ServiceSelected> serviceSelecteds) {
+		this.serviceSelecteds = serviceSelecteds;
 	}
 	
 	
