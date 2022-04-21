@@ -13,22 +13,22 @@ import lombok.Data;
 
 @Data
 @Entity
-public class CarService {
+public class ServiceSelected {
 
 @Id
 private int id;
-private String type;
 private double totalcost;
 
 
 
 	@ManyToOne
+	@JoinColumn
 	private Branch branch;
 
 	@ManyToOne
 	@JoinColumn
 	private Car car;
 	
-	//@ManyToMany(mappedBy = "carServices")
-	//private List<CarServiceAvailable> carServiceAvailables;
+	@ManyToMany(mappedBy = "carServices")
+	private List<CarServiceAvailable> carServiceAvailables;
 }
