@@ -6,12 +6,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.project.newcarcare.dto.Car;
-import com.project.newcarcare.dto.CarService;
+import com.project.newcarcare.dto.ServiceSelected;
 
 
-public interface CarServiceRepository extends JpaRepository<CarService, Integer> {
+public interface ServiceSelectedRepository extends JpaRepository<ServiceSelected, Integer> {
 
-	@Query("select cs from CarService cs where cs.branch.id= :bid and cs.car.carNumber= :cnum")
-	public List<CarService> getAllCarService(String bid,String cnum);
+	@Query("select cs from ServiceSelected cs where cs.branch.id= :bid and cs.car.carNumber= :cnum")
+	public List<ServiceSelected> getAllCarService(String bid,String cnum);
 
 }
